@@ -47,6 +47,20 @@ services:
     labels:
       org.label-schema.group: "monitoring"
 
+  nginxexporter:
+    image: nginx/nginx-prometheus-exporter:0.10.0
+    container_name: nginxexporter
+    command:
+      - '-nginx.scrape-uri=http://192.168.56.103/stub_status'
+    restart: unless-stopped
+    expose:
+      - 9113
+    networks:
+      - monitor-net
+    labels:
+      org.label-schema.group: "monitoring"
+
+
   nodeexporter:
     image: prom/node-exporter:v1.3.1
     container_name: nodeexporter
