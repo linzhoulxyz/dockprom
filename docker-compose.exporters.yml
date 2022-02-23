@@ -31,6 +31,8 @@ services:
       - /sys:/sys:ro
       - /var/lib/docker/:/var/lib/docker:ro
       - /cgroup:/cgroup:ro
+    command:
+      - '-port=9338'
     restart: unless-stopped
     network_mode: host
     labels:
