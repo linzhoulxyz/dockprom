@@ -50,6 +50,10 @@ scrape_configs:
     static_configs:
       - targets: ['nginxexporter:9113']
 
+  - job_name: 'nginxvts'
+    static_configs:
+      - targets: ['nginxvts:9913']
+
 
 alerting:
   alertmanagers:

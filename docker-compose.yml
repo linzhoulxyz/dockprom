@@ -60,6 +60,19 @@ services:
     labels:
       org.label-schema.group: "monitoring"
 
+  nginxvts:
+    image: sophos/nginx-vts-exporter
+    container_name: nginxvts
+    environment:
+      - NGINX_STATUS="http://10.110.106.202/status/format/json"
+    restart: unless-stopped
+    expose:
+      - 9913
+    networks:
+      - monitor-net
+    labels:
+      org.label-schema.group: "monitoring"
+
 
   nodeexporter:
     image: prom/node-exporter:v1.3.1
