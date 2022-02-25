@@ -64,7 +64,7 @@ services:
     image: sophos/nginx-vts-exporter
     container_name: nginxvts
     environment:
-      - NGINX_STATUS="http://10.110.106.202/status/format/json"
+      - NGINX_STATUS=${NGINX_VTX_STATUS:-http://localhost/status/format/json}
     restart: unless-stopped
     expose:
       - 9913
